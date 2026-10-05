@@ -1,0 +1,25 @@
+﻿* Do not waste time formatting it to look like a journal as you will likely do it wrong and it will have to be put into Latex anyway.
+
+* Do not waste time trying to get figures into the “right” place. It’s OK if they’re even separate files because you will likely do it wrong getting text to wrap around the figure in your Google Doc and it will have to be redone in Latex anyway.
+
+* Do not add junk to make it longer. You’re not graded on page count. Longer page count will be penalized or rejected.
+
+* Do consider starting with an outline to show the editor that you, and not an AI, actually wrote this. Keeping your drafts in a Github repository so I can see the revision history is also sufficient to help establish this was not done by an AI.
+
+* Remember to provide AI spot check results in your submission
+
+* Remember to give an informative title
+
+* Authors can be listed in any order you like. Normally the first author is thought of as a special position. Also the corresponding author is a special position. The last author is normally the research advisor or most senior person on the list. 
+
+    I. Abstract – one paragraph only, normally has no references
+    II. Introduction – work from broad to specific. Give major important background information or set up the major concepts to be used or tested. Set up the key research questions or hypotheses to tested. Optionally, give top level overview of method to be used. This section also acts as a literature review of other important work in the field and relevant to the questions at hand.  Equations are appropriate here if needed; symbols should be consistent throughout the paper. Remember in science we do not “prove” hypotheses, we can disprove alternatives by falsifying them, and that any hypotheses we propose must be testable (as in there must be a way to show it was wrong). 
+    III. Methods and materials – Provide all methods and materials in a form that is replicable by a competent scientist or engineer. This section is normally written in past tense, e.g. “We used an Easy Bake Oven (Hasbro; Pawtucket, RI) to evaporate plutonium samples to complete dryness…” 
+        A. Consider breaking the methods into subsections, either for different major methods or parts of the experiment
+        B. Alternatively you could break it down into subsections based on things like… experimental subjects… testing… statistical analyses, etc. Major models or equations are appropriate here if they explain how you are handling your data. 
+        C. Do not include results in your methods. The methods tell other scientists how to replicate what you did. Do not provide a laundry list or recipe of steps like you copied from a lab handout or an AI; these will be rejected. 
+        D. It is appropriate to put links to code or datasets; put long items in an appendix or provide online. 
+    IV. Results – The results should deal with “just the facts” exactly what you saw or measured, without interpretation. You should include graphs, tables, summary statistics, and results of statistical tests here. The key thing here is that you are reporting truthfully what you saw as just the facts; people may differ on the interpretations but results ought to be taken at face value unless your methods are flawed. Figures and tables must be numbered and must be referred to in the text. 
+    V. Discussion – The discussion is where you interpret the meaning of your results and whether they support your hypotheses or refute alternative hypotheses. You should refer to tables, figures, etc by number and use them in supporting your arguments here. 
+    VI. Acknowledgements – Keep it short or the editors will shorten it for you. 
+    VII. References – Do not spend too much time trying to perfectly format per MLA or whatever because journals often have their own preferred formats; as long as you have author, title, journal, year, volume, page number it will be findable. Peer reviewed journals or published work only; Food Girl’s Blog is not a peer reviewed journal; Wikipedia is not a peer reviewed journal; Webster’s Dictionary is not necessary in a scientific journal article. If I find fake references your paper will be rejected. 

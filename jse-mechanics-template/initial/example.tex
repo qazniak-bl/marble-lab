@@ -1,0 +1,202 @@
+%\documentclass[reprint,amsmath,amssymb,aps,twoside]{revtex4-2} % for editor use only
+
+% For initial submission use these lines
+\documentclass[amsmath,amssymb,aps,endfloats,linenumbers]{revtex4-2}
+
+
+
+% DO NOT CHANGE THINGS BELOW HERE
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{siunitx}
+%\usepackage{tikz,pgfplots}
+\sisetup{separate-uncertainty=true, multi-part-units=single}
+\usepackage[colorlinks,allcolors=blue]{hyperref}
+\usepackage{cleveref}
+\crefname{equation}{}{}
+\crefname{figure}{Fig.}{Figs.}
+\crefname{table}{Table}{Tables}
+\usepackage{svg}
+\svgpath{{./figures}}
+\makeatletter
+\def\blfootnote{\xdef\@thefnmark{}\@footnotetext}
+\makeatother
+
+
+
+
+% set PDF metadata
+% AUTHORS EDIT THIS PART
+\hypersetup{%
+pdftitle={Lab 1}, % full title here
+pdfauthor={Pranav Arunkumar, Dylan Arello, Lukas Fendrick, Sophia Maselli, Carter Krawiec}, % full author list here
+}
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RE,RO]{J S\&E \textbf{2}, xx--xx (2026)} % FOR EDITOR ONLY
+\fancyhead[LO]{Lennon \emph{et al}} % if many authors
+%\fancyhead[LO]{John and Dee} % if short enough to list all authors
+\fancyhead[LE]{She loves you, yeah, yeah, yeah} % full or short title depending on what fits
+%\fancyhead[LE}{Several species of small furry animals gathered together in a cave and grooving with a pict} % might be too long
+%\fancyhead[LE]{Several species grooving} % might be a short version of the title that fits
+\fancyfoot[C]{\thepage}
+\fancypagestyle{mytitlepage}{
+\fancyhf{}
+\fancyhead[C]{Journal of Science \& Engineering \textbf{2}, xx--xx (2026)} % FOR EDITOR ONLY
+\fancyfoot[C]{\thepage}
+\fancyfoot[L]{\scriptsize\copyright\ 2026 J S\&E \href{https://creativecommons.org/licenses/by-nc/4.0/}{CC-BY-NC 4.0}}
+}
+
+
+\begin{document}
+%\setcounter{page}{67} % FOR EDITOR USE ONLY
+%\linenumbers % FOR EDITOR USE ONLY
+
+% AUTHORS EDIT THIS PART
+\title{Lab 1}
+\author{Pranav Arunkumar}
+\altaffiliation{Manalapan High School} % use for non S&E authors
+\author{Dylan Arello}
+\author{Lukas Fendrick}
+\author{Sophia Maselli}
+\author{Carter Krawiec}
+\email[Contact author: ]{428parunkumar@frhsd.com} % use FRHSD address
+% For S&E authors
+\affiliation{Science \& Engineering Magnet Program, \href{https://manalapan.frhsd.com/}{Manalapan High School}, Englishtown, NJ 07726 USA}
+%\date{\today}
+\received{13 May 2026} % FOR EDITOR USE ONLY
+%\revised[revised~]{13 May 2026} % FOR EDITOR USE ONLY
+\accepted[accepted~]{13 May 2026} % FOR EDITOR USE ONLY
+\published[published~]{13 May 2026} % FOR EDITOR USE ONLY
+
+
+
+% AUTHORS PUT YOUR MANUSCRIPT IN BELOW HERE
+\begin{abstract}
+The abstract should be one paragraph only and normally has no references. It is the second thing people read after your title and may be the only thing they read if it fails in its job. It should give an overview of the work done and what the findings were. 
+
+%\vspace{1em} % Add space before DOI
+%\noindent DOI: \href{https://doi.org/10.64804/xxxxxx}{10.64808/xxxxxx}
+\end{abstract}
+
+% For revtex format this will not print on the article page but will be used in setting 
+% the journal metadata so include keywords. Lowercase unless they are acronyms or proper nouns
+% and pick keywords that will actually help people find your work properly. 
+\keywords{kinematics, pop, time series}
+
+\maketitle\thispagestyle{mytitlepage}
+\blfootnote{\\\emph{Published by the Journal of Science \& Engineering under the terms of the \href{https://creativecommons.org/licenses/by-nc/4.0/}{Creative Commons Attribution-NonCommercial 4.0 International} license. Further distribution of this work must maintain attribution to the author(s) and the published article's title, journal citation, and DOI.}}
+
+%The current column width is \the\columnwidth
+
+\section{Introduction}
+In Renaissance Italy, Nicolo Tartaglia was tasked with predicting the range of a cannonball in order to confer a military advantage to the Republic of Venice. His projected trajectory for a cannonball looks something like Figure 1.
+
+This section also acts as a literature review of other important work in the field and relevant to the questions at hand. An example of how to cite something is here \cite{tipler}. Here is another example \cite{openstax}. The actual citation data is provided in the file \texttt{example.bib} which you should also look at. Two more examples are \cite{rombauer:1931:joy, binzel:1988:hemispherical}. Please do not type in your references to try to force them to be MLA or whatever format as these are not the right formats for a physics paper; \LaTeX\ and \texttt{bibtex} know how to do the necesary formatting. Typing in your references in some other format will make more work for the editors and they will be grumpy. If you absolutely cannot figure out how to do references, pick a consistent label name for each reference to use, and the editor may help you out. 
+
+Equations are appropriate here if needed; symbols should be consistent throughout the paper. An example equation is:
+\begin{equation}
+\sum \vec{F} = m \vec{a}.
+\label{eq:fma} % example label for use with cleveref
+\end{equation}
+Equations receive punctuation; a period at the end is appropriate if it is the end of a sentence, or a comma if there is more to follow such as explanation of the symbols. Two ways to explain the symbols used are a list of symbols, or to explain them in the text. For the preceeding example in \cref{eq:fma}, $m$ is the mass in \unit{\kilo\gram}, while $\vec{a}$ is the acceleration in \unit{\meter\per\second}. J S\&E uses the \LaTeX\ \texttt{siunitx} package to format units consistently. Please do not type in your units manually, use the macros. Typing in your units manually will make more work for the editors and they will be grumpy. If you absolutely cannot figure out units or equations, write something simple with no formatting (F=ma here) and the editor may help you out. 
+
+Remember in science we do not ``prove'' hypotheses, we can disprove alternatives by falsifying them, and that any hypotheses we propose must be testable (as in there must be a way to show it was wrong). At the end of the introduction you normally introduce the research question your are out to answer and set up the testable hypotheses you will test in this article. 
+
+For initial submission it is common to set the paper to print doublespaced and with line numbers. Do not remove these it makes it easier for reviewers to comment. After initial review, the editor may switch it over to look like a preprint to aid in final formatting. Do not do this yourself! 
+
+
+
+
+
+
+\section{Methods and materials}
+Provide all methods and materials in a form that is replicable by a competent scientist or engineer. This section is normally written in past tense, e.g. ``We used an Easy Bake Oven (Hasbro; Pawtucket, RI) to evaporate plutonium samples to complete dryness...'' Key pieces of equipment or key reagents and materials should be listed with a source where they were obtained from. 
+
+\textbf{Do not include results in your methods.} The methods tell other scientists how to replicate what you did. \textbf{Do not provide a laundry list or recipe of steps like you copied from a lab handout or an AI; these will be rejected.} 
+
+It is appropriate to put links to code or datasets; put long items in an appendix or provide online.  For example, all code used to generate this example is provided at \url{https://github.com/devangel77b/jse-mechanics-template/}. 
+
+
+\subsection{Use of subsections}
+Consider breaking the methods into subsections, either for different major methods or parts of the experiment. Alternatively you could break it down into subsections based on things like: experimental subjects; drop testing; statistical analyses, etc. Major models or equations are appropriate here if they explain how you are handling your data. 
+
+
+
+
+
+        
+\section{Results}
+The results should deal with ``just the facts'' exactly what you saw or measured, without interpretation. You should include graphs, tables, summary statistics, and results of statistical tests here. The key thing here is that you are reporting truthfully what you saw as just the facts; people may differ on the interpretations but results ought to be taken at face value unless your methods are flawed. Figures and tables must be numbered and must be referred to in the text. 
+
+An example of a figure is \cref{fig:foo}. Note that the figure reference name must begin with \texttt{fig:} in order for the \LaTeX cleveref macros to properly parse it. 
+\begin{figure}
+\begin{center}
+%Image file would go here 
+% \includegraphics{figures/fig1.png}
+\includegraphics{figures/newfig1.pdf}
+% \includesvg{figures/fig2.svg}
+\end{center}
+\caption{This is a caption. Captions for figures go below the figure.}
+\label{fig:foo}
+\end{figure}
+    
+An example of a table is \cref{tab:bar}. 
+\begin{table}
+\begin{center}
+\begin{ruledtabular}
+\begin{tabular}{cc}
+$x$ & $\bar{x}$ \\
+\colrule
+0 & 1 \\ 
+1 & 0 \\
+\end{tabular}
+\end{ruledtabular}
+\end{center}
+\caption{This is a table. Captions for tables go above the table.}
+\label{tab:bar}
+\end{table}
+    
+    
+    
+    
+    
+\section{Discussion}
+The discussion is where you interpret the meaning of your results and whether they support your hypotheses or refute alternative hypotheses. You should refer to tables, figures, etc by number and use them in supporting your arguments here. To refer to a figure do like this: \cref{fig:foo} shows the third Zonklar moment as a function of $t$. To refer to a table like \cref{tab:bar}, do like this. 
+
+    
+    
+    
+    
+    
+    
+    
+\section{Acknowledgements}
+Keep it short or the editors will shorten it for you. JL wrote and PM wrote the lyrics. GH contributed rhythm guitar tracks. RS contributed drumbeats. Do not write long essays about Ms Komitas, Dr E, or the S\&E program here; we don't need or want fluff. 
+
+
+
+% References – Do not spend too much time trying to perfectly format per MLA or whatever because journals often have their own preferred formats; as long as you have author, title, journal, year, volume, page number it will be findable. Peer reviewed journals or published work only; Food Girl’s Blog is not a peer reviewed journal; Wikipedia is not a peer reviewed journal; Webster’s Dictionary is not necessary in a scientific journal article. If I find fake references your paper will be rejected. 
+
+
+
+
+
+
+\bibliography{example.bib}
+%References
+%[1] P.A. Tipler and G. Mosca. Physics for Scientists and Engineers, 5th ed. (W H Freeman and Company, New York, 2004).
+%
+%“De Caelo : Aristotle : Free Download, Borrow, and Streaming : Internet Archive.” Internet Archive, 2026, archive.org/details/decaelo00aris. Accessed 12 Jan. 2026.
+%
+%Galilei, G. Dialogues Concerning Two New Sciences (1638).
+%
+%Chazot, Christophe. FizziQ. 5.0.4, Trapèze. Digital, 2025, Apple App Store.
+
+
+\end{document}
