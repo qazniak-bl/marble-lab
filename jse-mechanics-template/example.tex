@@ -121,7 +121,10 @@ It is appropriate to put links to code or datasets; put long items in an appendi
 
         
 \section{Results}
-[Results go here]
+        The data in Table 1 show our measurements across three trials at different angles and a calculated average distance in cm. [table to be inserted in Latex] Using this data, we used python to plot and create a regression function according to the model in Equation 1 via Scipy and Matplotlib. The plot is visible in Figure 1. 
+[Figure 1 in latex] The regression parameters results in an initial velocity of 290.8 cm/s and an initial height of 8.779 cm Additionally, to perform further analysis, the residuals were calculated by subtracting the model values for the angle from the average values recorded in Table 1. These residuals were then used to create the residual plot found in Figure 2. 
+        To verify that the regression equation was a good fit for the data, we conducted a Shapiro-Wilk Test on the residuals, with the null hypothesis being that if the regression is a good fit for the data, the residuals would be approximately normally distributed. Our test statistic was 0.9473 and our p-value was 0.06682
+
 
 Figure example: \cref{fig:foo}. Note that the figure reference name must begin with \texttt{fig:} in order for the \LaTeX cleveref macros to properly parse it. 
 \begin{figure}
