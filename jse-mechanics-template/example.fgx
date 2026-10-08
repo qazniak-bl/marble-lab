@@ -1,0 +1,10 @@
+\begin {figure}
+\begin {center}
+%Image file would go here
+% \includegraphics {figures/fig1.png}
+\includegraphics {figures/newfig1.pdf}
+% \includesvg {figures/fig2.svg}
+\end {center}
+\caption {This is a caption. Captions for figures go below the figure.}
+\label {fig:foo}
+\end {figure}

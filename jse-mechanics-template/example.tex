@@ -39,9 +39,9 @@ pdfauthor={Pranav Arunkumar, Lukas Fendrick, Sophia Maselli, Dylan Arello, Carte
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[RE,RO]{J S\&E \textbf{2}, xx--xx (2026)} % FOR EDITOR ONLY
-\fancyhead[LO]{Lennon \emph{et al}} % if many authors
+\fancyhead[LO]{Arunkumar \emph{et al}} % if many authors
 %\fancyhead[LO]{John and Dee} % if short enough to list all authors
-\fancyhead[LE]{She loves you, yeah, yeah, yeah} % full or short title depending on what fits
+\fancyhead[LE]{Verifying Tartaglia's Theory of Cannonball Motion} % full or short title depending on what fits
 %\fancyhead[LE}{Several species of small furry animals gathered together in a cave and grooving with a pict} % might be too long
 %\fancyhead[LE]{Several species grooving} % might be a short version of the title that fits
 \fancyfoot[C]{\thepage}
@@ -78,7 +78,7 @@ pdfauthor={Pranav Arunkumar, Lukas Fendrick, Sophia Maselli, Dylan Arello, Carte
 
 % AUTHORS PUT YOUR MANUSCRIPT IN BELOW HERE
 \begin{abstract}
-[Abstract goes here] 
+Abstract goes here
 
 %\vspace{1em} % Add space before DOI
 %\noindent DOI: \href{https://doi.org/10.64804/xxxxxx}{10.64808/xxxxxx}
@@ -95,33 +95,44 @@ pdfauthor={Pranav Arunkumar, Lukas Fendrick, Sophia Maselli, Dylan Arello, Carte
 %The current column width is \the\columnwidth
 
 \section{Introduction}
-[Introduction goes here]
+Nicolo Tartaglia was an Italian Renaissance mathematician, who was tasked with modeling the motion of cannonballs by the Doge of Venice in order to confer a military advantage. His predicted trajectory of a cannonball is shown in Figure 1.
 
-Equation to talk about for stuff and yeah:
+[inster figure]
+
+He also predicted the ranges for cannonballs shot at different angles, as shown in table 1. In this experiment, we aim to test his theories and see if they match predictions made by modern theories of physics.
+
+Consider the horizontal and vertical components of projectile motion as given by Equations 1 and 2 where $v_0$ represents the initial velocity of the projectile, $\theta$ represents the initial angle, and $x_0$ and $y_0$ represent the initial positions on their respective axis.
 \begin{equation}
-\sum \vec{F} = m \vec{a}.
-\label{eq:fma} % "Label"
+  x(t) = v_0\cos{\theta}t + x_0
+\label{Equation 1. Horizontal component of projectile motion} % Label
+\end{equation}
+
+\begin{equation}
+  y(t) = v_0\sin{\theta}t-\frac{1}{2}gt^2 - y_0
+\label{Equation 2. Vertical component of projectile motion} % Label
+\end{equation}
+
+In order to calculate the horizontal range, we need to compute when $y(t)=0$ via quadratic formula, and substitute the resulting $t$ value into $x(t)$.
+
+Doing so, we get our final equation for which we fitted the data to.
+
+\begin{equation}
+  displacement = v_0\cos{\theta}* \frac{-v_0\sin{\theta} - \sqrt{v^2\sin{\theta}^2 - 4(y_0)(-\frac{1}{2}g)}}{-g}
+\label{Equation 3. Model of horizontal displacement}
 \end{equation}
 
 
 
-
-
 \section{Methods and materials}
-[Methods here]
+Methods here
 
 It is appropriate to put links to code or datasets; put long items in an appendix or provide online.  For example, all code used to generate this example is provided at \url{https://github.com/devangel77b/jse-mechanics-template/}. 
-
-
-\subsection{Use of subsections}
-[Subsection example]
-
 
 
 
         
 \section{Results}
-[Results go here]
+Results go here
 
 Figure example: \cref{fig:foo}. Note that the figure reference name must begin with \texttt{fig:} in order for the \LaTeX cleveref macros to properly parse it. 
 \begin{figure}
@@ -156,7 +167,7 @@ $x$ & $\bar{x}$ \\
     
     
 \section{Discussion}
-[Discussion goes here]
+Discussion goes here
     
     
     
@@ -165,8 +176,7 @@ $x$ & $\bar{x}$ \\
     
     
 \section{Acknowledgements}
-[Acknowledgements and references go here]
-
+SM tracked the motion of the marble and recorded the distance it traveled. LF recorded the videos and wrote part of the discussion. PA and CK took turns launching the marble at various degrees in different trials. DA ensured the marble did not stray too far from the site after each launch.
 
 
 

@@ -35,7 +35,9 @@
    (TeX-add-symbols
     "blfootnote")
    (LaTeX-add-labels
-    "eq:fma"
+    "Equation 1. Horizontal component of projectile motion"
+    "Equation 2. Vertical component of projectile motion"
+    "Equation 3. Model of horizontal displacement"
     "fig:foo"
     "tab:bar")
    (LaTeX-add-bibliographies

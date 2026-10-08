@@ -1,0 +1,14 @@
+\begin {table}
+\begin {center}
+\begin {ruledtabular}
+\begin {tabular}{cc}
+$x$ & $\bar {x}$ \\
+\colrule 
+0 & 1 \\
+1 & 0 \\
+\end {tabular}
+\end {ruledtabular}
+\end {center}
+\caption {This is a table. Captions for tables go above the table.}
+\label {tab:bar}
+\end {table}
