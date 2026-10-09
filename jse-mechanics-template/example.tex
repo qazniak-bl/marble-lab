@@ -98,7 +98,7 @@ Abstract goes here
 Nicolo Tartaglia was an Italian Renaissance mathematician, who was tasked with modeling the motion of cannonballs by the Doge of Venice in order to confer a military advantage. His predicted trajectory of a cannonball is shown in Figure 1.
 \begin{figure}
 \begin{center}
-\includegraphics{figures/predicted_trajectory.jpg}
+\includegraphics[width=0.99\textwidth]{figures/predicted_trajectory.jpg}
 \end{center}
 \caption{Tartaglia's prediction of cannonball flight}
 \label{fig:tart}
@@ -109,12 +109,12 @@ He also predicted the horizontal ranges of cannonballs shot at various angles, c
 Consider the horizontal and vertical components of projectile motion as given by Equations 1 and 2, where $v_0$ represents the initial velocity of the projectile, $\theta$ represents the initial angle, and $x_0$ and $y_0$ represent the initial positions on their respective axis \cite{tipler}.
 \begin{equation}
   x(t) = v_0\cos{\theta}t + x_0
-\label{Equation 1. Horizontal component of projectile motion} % Label
+\label{eq:horizontal} % Label
 \end{equation}
 
 \begin{equation}
   y(t) = v_0\sin{\theta}t-\frac{1}{2}gt^2 - y_0
-\label{Equation 2. Vertical component of projectile motion} % Label
+\label{eq:vertical} % Label
 \end{equation}
 
 In order to calculate the horizontal range, we need to compute when $y(t)=0$ via quadratic formula, and substitute the resulting $t$ value into $x(t)$.
@@ -123,7 +123,7 @@ Doing so, we get our final equation for which we fitted the data to.
 
 \begin{equation}
   displacement = v_0\cos{\theta}* \frac{-v_0\sin{\theta} - \sqrt{v^2\sin{\theta}^2 - 4(y_0)(-\frac{1}{2}g)}}{-g}
-\label{Equation 3. Model of horizontal displacement}
+\label{eq:model}
 \end{equation}
 
 
@@ -143,16 +143,15 @@ To perform statistical analysis, we plotted our data and created a regression mo
 All code and figures used in this paper can be found at \url{https://github.com/qazniak-bl/marble-lab}.
 
 \section{Results}
-Results go here
 
-The data in Table 1 show our measurements across three trials at different angles and a calculated average horizontal range.
-
+The data in Table \cref{tab:projectile-distance} show our measurements across three trials at different angles and a calculated average horizontal range.
 
 \begin{table}[htbp]
     \centering
-    \caption{Projectile Distance at Different Launch Angles}
+    \caption{Marble Horizontal Range at Different Launch Angles}
     \label{tab:projectile-distance}
     \begin{tabular}{ccccc}
+      % \centering
         \toprule
         Angle ($^\circ$) &
         Trial 1 (cm) &
@@ -177,8 +176,35 @@ The data in Table 1 show our measurements across three trials at different angle
     \end{tabular}
 \end{table}
 
+Using this data we used python to plot and create a regression function according to the model in Equation \cref{eq:model} via Scipy and Matplotlib\cite{scipy,matplotlib}.
+Our regression is visible in \cref{fig:regression}.
+\begin{figure}
+  \centering
+    \includesvg[width=0.99\textwidth]{figures/Figure_1}
+    \caption{Plot of horizontal range vs. degrees}
+    \label{fig:regression}
+\end{figure}
+
+We used this same regression to generate a plot of the residuals, visible in \cref{fig:residual}.
+\begin{figure}
+  \centering
+    \includesvg[width=0.99\textwidth]{figures/residuals_final}
+    \caption{Plot of residuals}
+    \label{fig:residual}
+\end{figure}
+
+To verify that the regression equation was a good fit for the data, we conducted a Shapiro-Wilk test on the residuals to asses their normality, with the null hypothesis being that if the regression is a good fit for the data, the residuals would be normally distributed. In doing so, we got a test statistic of 0.9473 and a p-value of 0.06682.
+
+The super-imposed trajectory of the marble can be found in \cref{fig:trajectory}.
+\begin{figure}
+  \centering
+  \includegraphics[width=1\textwidth]{figures/MAX_differenceStack.png}
+  \caption{Trajectory of the marble}
+  \label{fig:trajectory}
+\end{figure}
 
 % Figure example: \cref{fig:foo}. Note that the figure reference name must begin with \texttt{fig:} in order for the \LaTeX cleveref macros to properly parse it.
+%
 % \begin{figure}
 % \begin{center}
 % %Image file would go here
@@ -206,28 +232,32 @@ The data in Table 1 show our measurements across three trials at different angle
 % \label{tab:bar}
 % \end{table}
     
-    
-    
-    
+
     
 \section{Discussion}
-Discussion goes here
-    
-    
-    
-    
-    
-    
-    
+Our polynomial fit produces an $R^2$ value of 0.8971, which means that our model accounted for 89.71\% of the variation when we model horizontal range as a function of angle.
+This indicates our model fit the data fairly well. The results of our Shapiro test also corroborate this: our p-value of 0.06682 is greater than our significance level of $\alpha=0.5$, so we have no reason to reject our null hypothesis that the residuals are normally distributed.
+
+Furthermore, our trajectory found in \cref{fig:trajectory} is nothing like what Tartaglia predicted in \cref{fig:tart}. As such, we can discredit his second theory.
+
+Tartaglia also predicted that horizontal range would be maximized at 45°, but our data in \cref{tab:projectile-distance} shows that horizontal range actually reached its maximum at 37.5°. Additionally, there is no obvious symmetry around the angle of maximum range, although this could be due to our lack of proper recording equipment.
+As such, we conclude that Tartaglia's initial claim about the angle of maximum range was wrong, but we can not reliably deny his claim regarding the symmetry of the range.
+
+We encountered a couple human errors as we did our tests and experiments. A major experience with these errors was a mistake we encountered while angling the cannon.
+These measurements caused our own data tables to have a large margin of error as we progressed in our trials. Our cannon was supposed to start at 0°, incrementing by 7.5° for each shot until 90° is reached; however we ended up shortening the increment, and so, when we were intending to be at 90° when we were actually at around 80°.
+To remedy this, we re-did our original trial. This took more time, and in hindsight we should have been more precise with our measurements. We also did not have the greatest tools to record the distance at which the marble fell below the table.
+
+Additionally, the camera we used to map the trajectory of the marble (Arducam) had some lens distortion, resulting in a parabolic view of the shot. While we could have accounted for this, we had no need to, as this video was only used to map out the trajectory and not used to extract measurements.
+
+
 \section{Acknowledgements}
 SM tracked the motion of the marble and recorded the distance it traveled. LF recorded the videos and wrote part of the discussion. PA and CK took turns launching the marble at various degrees in different trials. DA ensured the marble did not stray too far from the site after each launch.
 
 
 
-
 \bibliography{example}
 %References
-[1] P.A. Tipler and G. Mosca. Physics for Scientists and Engineers, 5th ed. (W H Freeman and Company, New York, 2004).
+% [1] P.A. Tipler and G. Mosca. Physics for Scientists and Engineers, 5th ed. (W H Freeman and Company, New York, 2004).
 %
 %“De Caelo : Aristotle : Free Download, Borrow, and Streaming : Internet Archive.” Internet Archive, 2026, archive.org/details/decaelo00aris. Accessed 12 Jan. 2026.
 %

@@ -1,8 +1,9 @@
 \begin {table}[htbp]
 \centering 
-\caption {Projectile Distance at Different Launch Angles}
+\caption {Marble Horizontal Range at Different Launch Angles}
 \label {tab:projectile-distance}
 \begin {tabular}{ccccc}
+% \centering 
 \toprule 
 Angle ($^\circ $) &
 Trial 1 (cm) &

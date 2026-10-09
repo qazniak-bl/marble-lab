@@ -46,8 +46,8 @@ plt.scatter(x,y2,label = "trial 2")
 plt.scatter(x,y3,label = "trial 3")
 plt.scatter(x,y_avg,label="Average",color='red')
 
-plt.xlabel("Angle (°)")
-plt.ylabel("Horizontal range (cm)")
+plt.xlabel("Angle (°)", fontsize = 20)
+plt.ylabel("Horizontal range (cm)", fontsize = 20)
 plt.xticks(np.arange(0,97.5,7.5))
 plt.gca().yaxis.set_major_locator(MaxNLocator(nbins=20))
 
@@ -57,4 +57,5 @@ plt.errorbar(x,y_avg,yerr=y_sem,fmt='o',linestyle='None',color='red')
 
 plt.plot(x_model, function(x_model,velocity,inital_h),label=f"Modelled fit ($R^2$ = {r_squared:.5f})")
 plt.legend()
+plt.rc('legend',fontsize=15)
 plt.show()
