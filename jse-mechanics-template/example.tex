@@ -4,13 +4,13 @@
 \documentclass[amsmath,amssymb,aps,endfloats,linenumbers]{revtex4-2}
 
 
-
 % DO NOT CHANGE THINGS BELOW HERE
 \usepackage{graphicx}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{dcolumn}
 \usepackage{bm}
 \usepackage{siunitx}
+\usepackage{booktabs}
 %\usepackage{tikz,pgfplots}
 \sisetup{separate-uncertainty=true, multi-part-units=single}
 \usepackage[colorlinks,allcolors=blue]{hyperref}
@@ -96,12 +96,17 @@ Abstract goes here
 
 \section{Introduction}
 Nicolo Tartaglia was an Italian Renaissance mathematician, who was tasked with modeling the motion of cannonballs by the Doge of Venice in order to confer a military advantage. His predicted trajectory of a cannonball is shown in Figure 1.
+\begin{figure}
+\begin{center}
+\includegraphics{figures/predicted_trajectory.jpg}
+\end{center}
+\caption{Tartaglia's prediction of cannonball flight}
+\label{fig:tart}
+\end{figure}
 
-[inster figure]
+He also predicted the horizontal ranges of cannonballs shot at various angles, concluding that they are symmetric at 45° and travel furthest at 45°. In this experiment, we aim to test his theories with more established mathematical models of projectile motion.
 
-He also predicted the ranges for cannonballs shot at different angles, as shown in table 1. In this experiment, we aim to test his theories and see if they match predictions made by modern theories of physics.
-
-Consider the horizontal and vertical components of projectile motion as given by Equations 1 and 2 where $v_0$ represents the initial velocity of the projectile, $\theta$ represents the initial angle, and $x_0$ and $y_0$ represent the initial positions on their respective axis.
+Consider the horizontal and vertical components of projectile motion as given by Equations 1 and 2, where $v_0$ represents the initial velocity of the projectile, $\theta$ represents the initial angle, and $x_0$ and $y_0$ represent the initial positions on their respective axis \cite{tipler}.
 \begin{equation}
   x(t) = v_0\cos{\theta}t + x_0
 \label{Equation 1. Horizontal component of projectile motion} % Label
@@ -124,43 +129,82 @@ Doing so, we get our final equation for which we fitted the data to.
 
 
 \section{Methods and materials}
-Methods here
+We conducted this experiment using a PASCO ME-6825 Mini Launcher (PASCO Scientific, Roseville, California) alongside a 16mm stainless steel marble with an average mass of 16.7g across 7 marbles, weighed using a Digital Pro Pocket Scale (Smart Weigh, New York, NY). We used these materials to repeat our methods across three trials. We used a C-clamp to hold the launcher against the table to ensure it did not move much over the course of the experiment.
+Setting this up, we used two metersticks, one at the standard length of 100cm, and another snapped in half, measuring around 55cm. We lined these up next to each other to measure the distance the marble was shot out of our launcher.
 
-It is appropriate to put links to code or datasets; put long items in an appendix or provide online.  For example, all code used to generate this example is provided at \url{https://github.com/devangel77b/jse-mechanics-template/}. 
+We began each of our three trials by setting our mini launcher to be parallel to the ground, at an angle of 0°. We then inserted the marble into the launcher until it clicked once. We recorded each trial with the webcam of the Lenovo Ideapad 5i (Lenovo, Morrisville, North Carolina) at 30 FPS.
+We would then shoot the marble, having a group member estimate the distance of the shot by recording the length at which the marble fell below the table. Then, using a protractor, we increased the angle by 7.5° and repeated the process again, eventually stopping the trial after 90°.
+
+At a later point in time, we recorded a brief trajectory shot using an Arducam OV9281 1MP USB Camera (Arducam, Nanjing, China) set to 60FPS. We then extracted the frames via ffmpeg(v8.1.2) and superimposed the images via AstroImageJ\cite{Collins:2017:AstroImageJ}.
+
+To perform statistical analysis, we plotted our data and created a regression model with the use of the NumPy, SciPy, and Matplotlib libraries\cite{numpy,scipy,matplotlib}.
 
 
+All code and figures used in this paper can be found at \url{https://github.com/qazniak-bl/marble-lab}.
 
-        
 \section{Results}
 Results go here
 
-Figure example: \cref{fig:foo}. Note that the figure reference name must begin with \texttt{fig:} in order for the \LaTeX cleveref macros to properly parse it. 
-\begin{figure}
-\begin{center}
-%Image file would go here 
-% \includegraphics{figures/fig1.png}
-\includegraphics{figures/newfig1.pdf}
-% \includesvg{figures/fig2.svg}
-\end{center}
-\caption{This is a caption. Captions for figures go below the figure.}
-\label{fig:foo}
-\end{figure}
-    
-An example of a table is \cref{tab:bar}. 
-\begin{table}
-\begin{center}
-\begin{ruledtabular}
-\begin{tabular}{cc}
-$x$ & $\bar{x}$ \\
-\colrule
-0 & 1 \\ 
-1 & 0 \\
-\end{tabular}
-\end{ruledtabular}
-\end{center}
-\caption{This is a table. Captions for tables go above the table.}
-\label{tab:bar}
+The data in Table 1 show our measurements across three trials at different angles and a calculated average horizontal range.
+
+
+\begin{table}[htbp]
+    \centering
+    \caption{Projectile Distance at Different Launch Angles}
+    \label{tab:projectile-distance}
+    \begin{tabular}{ccccc}
+        \toprule
+        Angle ($^\circ$) &
+        Trial 1 (cm) &
+        Trial 2 (cm) &
+        Trial 3 (cm) &
+        Average (cm) \\
+        \midrule
+        0.0  & 20  & 25  & 21  & 22.00 \\
+        7.5  & 51  & 50  & 52  & 51.00 \\
+        15.0 & 75  & 65  & 60  & 66.67 \\
+        22.5 & 99  & 96  & 87  & 94.00 \\
+        30.0 & 103 & 97  & 97  & 99.00 \\
+        37.5 & 102 & 103 & 98  & 101.00 \\
+        45.0 & 99  & 96  & 91  & 95.33 \\
+        52.5 & 90  & 90  & 85  & 88.33 \\
+        60.0 & 80  & 77  & 76  & 77.67 \\
+        67.5 & 45  & 46  & 47  & 46.00 \\
+        75.0 & 30  & 32  & 31  & 31.00 \\
+        82.5 & 2   & 2   & 10  & 4.67 \\
+        90.0 & 0   & 0   & 0   & 0.00 \\
+        \bottomrule
+    \end{tabular}
 \end{table}
+
+
+% Figure example: \cref{fig:foo}. Note that the figure reference name must begin with \texttt{fig:} in order for the \LaTeX cleveref macros to properly parse it.
+% \begin{figure}
+% \begin{center}
+% %Image file would go here
+% % \includegraphics{figures/fig1.png}
+% \includegraphics{figures/newfig1.pdf}
+% % \includesvg{figures/fig2.svg}
+% \end{center}
+% \caption{This is a caption. Captions for figures go below the figure.}
+% \label{fig:foo}
+% \end{figure}
+    
+% An example of a table is \cref{tab:bar}.
+% \begin{table}
+% \begin{center}
+% \begin{ruledtabular}
+% \begin{tabular}{cc}
+% $x$ & $\bar{x}$ \\
+% \colrule
+% 0 & 1 \\
+% 1 & 0 \\
+% \end{tabular}
+% \end{ruledtabular}
+% \end{center}
+% \caption{This is a table. Captions for tables go above the table.}
+% \label{tab:bar}
+% \end{table}
     
     
     
@@ -181,9 +225,9 @@ SM tracked the motion of the marble and recorded the distance it traveled. LF re
 
 
 
-\bibliography{example.bib}
+\bibliography{example}
 %References
-%[1] P.A. Tipler and G. Mosca. Physics for Scientists and Engineers, 5th ed. (W H Freeman and Company, New York, 2004).
+[1] P.A. Tipler and G. Mosca. Physics for Scientists and Engineers, 5th ed. (W H Freeman and Company, New York, 2004).
 %
 %“De Caelo : Aristotle : Free Download, Borrow, and Streaming : Internet Archive.” Internet Archive, 2026, archive.org/details/decaelo00aris. Accessed 12 Jan. 2026.
 %
