@@ -78,7 +78,7 @@ pdfauthor={Pranav Arunkumar, Lukas Fendrick, Sophia Maselli, Dylan Arello, Carte
 
 % AUTHORS PUT YOUR MANUSCRIPT IN BELOW HERE
 \begin{abstract}
-Abstract goes here
+  Nicolo Tartaglia theorized in his 1573 work \emph{Nova Sciencia} that projectiles travel furthest when shot at 45° and travel a linear trajectory before curving straight down. In this study, we tested his theories with modern physics models and determined that his theories do not hold true. We shot a 16mm stainless steel marble out of a PASCO ME-6825 launcher aimed at different angles and recorded the horizontal displacement for each. The data were then plotted in python and a regression was created based on modern mathematical models, as well as the residuals between for the regression. A Shapiro-Milk test of the residuals yielded a p-value of 0.06682, indicating our residuals were normally distrbuted and corroborated our modern model.
 
 %\vspace{1em} % Add space before DOI
 %\noindent DOI: \href{https://doi.org/10.64804/xxxxxx}{10.64808/xxxxxx}
@@ -95,18 +95,18 @@ Abstract goes here
 %The current column width is \the\columnwidth
 
 \section{Introduction}
-Nicolo Tartaglia was an Italian Renaissance mathematician, who was tasked with modeling the motion of cannonballs by the Doge of Venice in order to confer a military advantage. His predicted trajectory of a cannonball is shown in Figure 1.
+Nicolo Tartaglia was an Italian Renaissance mathematician, who was tasked with modeling the motion of cannonballs by the Doge of Venice in order to confer a military advantage. His predicted trajectory of cannonballs is as follows: first, the ball would move diagonally in a straight line, before curving in the arc of a circle and falling straight down as seen in \cref{fig:tart}.
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.99\textwidth]{figures/predicted_trajectory.jpg}
 \end{center}
-\caption{Tartaglia's prediction of cannonball flight}
+\caption{Tartaglia's prediction of cannonball flight in Nova Sciencia(1573)}
 \label{fig:tart}
 \end{figure}
 
 He also predicted the horizontal ranges of cannonballs shot at various angles, concluding that they are symmetric at 45° and travel furthest at 45°. In this experiment, we aim to test his theories with more established mathematical models of projectile motion.
 
-Consider the horizontal and vertical components of projectile motion as given by Equations 1 and 2, where $v_0$ represents the initial velocity of the projectile, $\theta$ represents the initial angle, and $x_0$ and $y_0$ represent the initial positions on their respective axis \cite{tipler}.
+The position of a projectile--such as a cannon--can be calculated by splitting its position into horizontal and vertical positions, as seen in Equations \cref{eq:horizontal} and \cref{eq:vertical}, where $v_0$ represents the initial velocity of the projectile, $\theta$ represents the initial angle, and $x_0$ and $y_0$ represent the initial positions on their respective axis \cite{tipler}.
 \begin{equation}
   x(t) = v_0\cos{\theta}t + x_0
 \label{eq:horizontal} % Label
@@ -130,7 +130,7 @@ Doing so, we get our final equation for which we fitted the data to.
 
 \section{Methods and materials}
 We conducted this experiment using a PASCO ME-6825 Mini Launcher (PASCO Scientific, Roseville, California) alongside a 16mm stainless steel marble with an average mass of 16.7g across 7 marbles, weighed using a Digital Pro Pocket Scale (Smart Weigh, New York, NY). We used these materials to repeat our methods across three trials. We used a C-clamp to hold the launcher against the table to ensure it did not move much over the course of the experiment.
-Setting this up, we used two metersticks, one at the standard length of 100cm, and another snapped in half, measuring around 55cm. We lined these up next to each other to measure the distance the marble was shot out of our launcher.
+Setting this up, we used two meter sticks, one at the standard length of 100cm, and another snapped in half, measuring around 55cm. We lined these up next to each other to measure the distance the marble was shot out of our launcher.
 
 We began each of our three trials by setting our mini launcher to be parallel to the ground, at an angle of 0°. We then inserted the marble into the launcher until it clicked once. We recorded each trial with the webcam of the Lenovo Ideapad 5i (Lenovo, Morrisville, North Carolina) at 30 FPS.
 We would then shoot the marble, having a group member estimate the distance of the shot by recording the length at which the marble fell below the table. Then, using a protractor, we increased the angle by 7.5° and repeated the process again, eventually stopping the trial after 90°.
@@ -177,7 +177,7 @@ The data in Table \cref{tab:projectile-distance} show our measurements across th
 \end{table}
 
 Using this data we used python to plot and create a regression function according to the model in Equation \cref{eq:model} via Scipy and Matplotlib\cite{scipy,matplotlib}.
-Our regression is visible in \cref{fig:regression}.
+Our regression is visible in \cref{fig:regression} and produced an estimated initial velocity ($v_0$) of 290.8049 cm/s and an estimated initial height of 8.7794 cm.
 \begin{figure}
   \centering
     \includesvg[width=0.99\textwidth]{figures/Figure_1}
@@ -193,7 +193,7 @@ We used this same regression to generate a plot of the residuals, visible in \cr
     \label{fig:residual}
 \end{figure}
 
-To verify that the regression equation was a good fit for the data, we conducted a Shapiro-Wilk test on the residuals to asses their normality, with the null hypothesis being that if the regression is a good fit for the data, the residuals would be normally distributed. In doing so, we got a test statistic of 0.9473 and a p-value of 0.06682.
+To verify that the regression equation was a good fit for the data, we conducted a Shapiro-Wilk test on the residuals to assess their normality, with the null hypothesis being that if the regression is a good fit for the data, the residuals would be normally distributed. In doing so, we got a test statistic of 0.9473 and a p-value of 0.06682.
 
 The super-imposed trajectory of the marble can be found in \cref{fig:trajectory}.
 \begin{figure}
@@ -203,35 +203,6 @@ The super-imposed trajectory of the marble can be found in \cref{fig:trajectory}
   \label{fig:trajectory}
 \end{figure}
 
-% Figure example: \cref{fig:foo}. Note that the figure reference name must begin with \texttt{fig:} in order for the \LaTeX cleveref macros to properly parse it.
-%
-% \begin{figure}
-% \begin{center}
-% %Image file would go here
-% % \includegraphics{figures/fig1.png}
-% \includegraphics{figures/newfig1.pdf}
-% % \includesvg{figures/fig2.svg}
-% \end{center}
-% \caption{This is a caption. Captions for figures go below the figure.}
-% \label{fig:foo}
-% \end{figure}
-    
-% An example of a table is \cref{tab:bar}.
-% \begin{table}
-% \begin{center}
-% \begin{ruledtabular}
-% \begin{tabular}{cc}
-% $x$ & $\bar{x}$ \\
-% \colrule
-% 0 & 1 \\
-% 1 & 0 \\
-% \end{tabular}
-% \end{ruledtabular}
-% \end{center}
-% \caption{This is a table. Captions for tables go above the table.}
-% \label{tab:bar}
-% \end{table}
-    
 
     
 \section{Discussion}
@@ -251,7 +222,7 @@ Additionally, the camera we used to map the trajectory of the marble (Arducam) h
 
 
 \section{Acknowledgements}
-SM tracked the motion of the marble and recorded the distance it traveled. LF recorded the videos and wrote part of the discussion. PA and CK took turns launching the marble at various degrees in different trials. DA ensured the marble did not stray too far from the site after each launch.
+SM tracked the motion of the marble and recorded the distance it traveled. LF recorded the videos and wrote part of the discussion. CK took turns launching the marble at various degrees in different trials. PA performed the data analysis and wrote up the results. DA ensured the marble did not stray too far from the site after each launch.
 
 
 
